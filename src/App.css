@@ -46,3 +46,14 @@
 
 
 
+
+
+
+.marsPhoto, .enginePhoto {
+  width: 300px;
+  height: auto;
+  margin: 10px;
+}
+#marsPhotoss, #engine {
+  display: flex;
+}
