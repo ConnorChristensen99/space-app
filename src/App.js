@@ -55,7 +55,7 @@ function App() {
     setDisplay(<Router>
       <Navbar />
       <Routes>
-          <Route path='/earth' element={<Earth />} />
+          <Route index path='/earth' selected element={<Earth />} />
           <Route path='/mars' element={<Mars />} />
           <Route path='/nasa' element={<NASA />} />
           <Route path='/events' element={<Events />} />
