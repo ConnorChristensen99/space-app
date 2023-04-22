@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import TextField from '@mui/material/TextField';
 
 function Earth() {
   const API_KEY = 'ubtDeq16oc6DaL16ddmYvUlEiRF5zGwnYRiYv7tn'
@@ -33,16 +34,13 @@ function Earth() {
       </h1>
       <h4>Find a satellite Image!</h4>
       <form onSubmit={handleSubmit}>
-      <label>
-        Latitude:
-    <input type="text" name="lat" />
-      </label>
-      <label>
-        Longitude:
-    <input type="text" name="long" />
-      </label>
-      <input type="submit" value="Submit" />
+      <TextField id="filled-basic" label="Enter Latitude" variant="filled" type="text" name="lat"/>
+      <TextField id="filled-basic" label="Enter Longitude" variant="filled" type="text" name="long"/>
+      <input type="submit" value="Find Image" id="submitLong" />
       </form>
+      <div id="satelliteImage">
+        <img id="latImage" src={require("../images/snorkeling.png")}/>
+      </div>
     </div>
   );
 };

@@ -14,7 +14,20 @@
 img {
   border: 3px solid white;
 }
-
+#submitLong {
+  padding: 10px;
+  border: 3px solid blue;
+  background-color: transparent;
+  text-transform: uppercase;
+  color: white;
+  width: 100px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+#submitLong:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.253);
+}
 /* HOME PAGE CSS */
 .exploreButton {
   width: 500px;
@@ -60,3 +73,19 @@ img {
   display: flex;
 }
 
+
+
+
+/* EARTH PAGE CSS */
+#latImage {
+  margin-top: 15px;
+}
+
+
+
+/* EVENTS PAGE CSS */
+.events {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 2%;
+}
