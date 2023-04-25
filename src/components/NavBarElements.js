@@ -13,7 +13,7 @@ margin-top: -500px;
 `;
   
 export const NavLink = styled(Link)`
-  color: #808080;
+  color: #2b2a2a;
   display: flex;
   align-items: center;
   text-decoration: none;

@@ -8,15 +8,22 @@ const [mars4, setMARS4] = useState("")
 
 const API_KEY = 'ubtDeq16oc6DaL16ddmYvUlEiRF5zGwnYRiYv7tn'
 
-async function getForecast() {
+
+useEffect(() => {
+  const fetchData = async () => {
   const response = await fetch(`https://api.nasa.gov/insight_weather/?api_key=${API_KEY}&feedtype=json&ver=1.0`)
  
   let forecast = await response.json()
 
  console.log(forecast)
 }
+fetchData()
+}, [])
 
-async function getPictures() {
+
+
+useEffect(() => {
+  const fetchData = async () => {
   const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=${API_KEY}`)
  
   let pictures = await response.json()
@@ -26,9 +33,9 @@ async function getPictures() {
  setMARS3(pictures.photos[2].img_src)
  setMARS4(pictures.photos[3].img_src)
 }
-getForecast()
-getPictures()
-  
+fetchData()
+}, [])
+
 
   return (
     <div>
