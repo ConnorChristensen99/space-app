@@ -14,7 +14,16 @@ function Earth() {
   
    console.log(data)
   }
-  
+
+  function getImage(formLat, formLon) {
+    const imageURL = `https://api.nasa.gov/planetary/earth/imagery?lon=${formLon}&lat=${formLat}&date=2014-02-01&api_key=${API_KEY}`
+
+    return(
+      <img id="latImage" src={imageURL} alt="image of entered location" />
+    )
+  }
+
+
   const handleSubmit = event => {
     event.preventDefault();
     setFormLat(event.target.lat.value)
@@ -23,9 +32,10 @@ function Earth() {
     console.log(formLat)
     console.log(formLon)
 
-    getData()
+    getImage(formLat, formLon)
 
   }
+
 
   return (
     <div>
@@ -39,7 +49,7 @@ function Earth() {
       <input type="submit" value="Find Image" id="submitLong" />
       </form>
       <div id="satelliteImage">
-        <img id="latImage" src={require("../images/snorkeling.png")}/>
+        {getImage()}
       </div>
     </div>
   );

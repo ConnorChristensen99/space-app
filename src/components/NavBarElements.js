@@ -13,7 +13,7 @@ margin-top: -500px;
 `;
   
 export const NavLink = styled(Link)`
-  color: #2b2a2a;
+  color: white;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -22,9 +22,11 @@ export const NavLink = styled(Link)`
   cursor: pointer;
   &.active {
     color: white;
-    border-bottom: 6px solid green;
-    background-color: #b07db0;
-    margin: -3px;
+    border-bottom: 4px solid white;
+    background-color: rgba(99,99,9,.2);
+  }
+  &:hover {
+    background-color: rgba(99,99,9,.2);
   }
 `;
   
