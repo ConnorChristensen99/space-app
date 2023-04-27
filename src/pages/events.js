@@ -52,7 +52,8 @@ useEffect(() => {
 //NOW THAT YOU HAVE DATA, TURN IT INTO CARDS
 
   return (
-    <div>
+    <div class="mainPage">
+      
       <h1>
         Month of Space Events
       </h1>

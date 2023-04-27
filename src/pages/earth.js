@@ -49,7 +49,8 @@ function Earth() {
 
 
   return (
-    <div>
+    <div class="mainPage">
+      
       <h1>
         EARTH
       </h1>

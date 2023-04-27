@@ -38,7 +38,8 @@ fetchData()
 
 
   return (
-    <div>
+    <div class="mainPage">
+      
       <h1>
         Forecast on Mars
       </h1>

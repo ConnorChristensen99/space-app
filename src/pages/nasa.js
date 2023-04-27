@@ -102,7 +102,8 @@ const maxLength = 200
 const readMoreText = "Read More"
 
   return (
-    <div>
+    <div class="mainPage">
+      
       <h1>
         NASA's Assets
       </h1>
