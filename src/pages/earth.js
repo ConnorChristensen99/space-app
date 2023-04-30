@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from "react";
 import TextField from '@mui/material/TextField';
+import SimpleImageSlider from "react-simple-image-slider";
 
 function Earth() {
   const API_KEY = 'ubtDeq16oc6DaL16ddmYvUlEiRF5zGwnYRiYv7tn'
 
-  const [formLat, setFormLat] = useState(40.2969)
-  const [formLon, setFormLong] = useState(111.6946)
+  const [formLat, setFormLat] = useState(1.5)
+  const [formLon, setFormLong] = useState(100.75)
 
 
 
-  
-  
+ 
+  let images = []
   useEffect(() => {
+   
     const fetchData = async () => {
     const response = await fetch(`https://api.nasa.gov/EPIC/api/natural/images?api_key=${API_KEY}`)
+
    
     let earthImage = await response.json()
   
-   console.log(earthImage) //I MIGHT NEED TO DO WHAT I DID BELOW IF IT IS RETURNING AN IMAGE
+   console.log(earthImage)
+
+   for (let index = 0; index < earthImage.length; index++) {
+    const picture = earthImage[index];
+
+    console.log(picture.image)
+
+    images.push({url: `https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/${picture.image}.png?api_key=${API_KEY}`})
+
+    console.log(images)
+   }
   }
   fetchData()
   }, [])
@@ -55,7 +68,15 @@ function Earth() {
         EARTH
       </h1>
 
-      {/* EARTH IMAGE HERE */}
+      <div class="imageSlider">
+      <SimpleImageSlider
+        width={896}
+        height={504}
+        images={images}
+        showBullets={true}
+        showNavs={true}
+      />
+      </div>
 
       <h4>Find a satellite Image!</h4>
       <form onSubmit={handleSubmit}>

@@ -86,6 +86,7 @@ useEffect(() => {
       <p># of events linked to this one: {radiationbeltLinks}</p>
       <form action={radiationbelt}>
       <Button variant="contained" type="submit" >View Event</Button>
+      
       </form>
 </div>
 </div>

@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import ReadMoreReact from 'read-more-react';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
 
-
+let favoritedSoftware = []
 
 function Nasa() {
+  const [list, setList] = useState([]);
+  const [value, setValue] = useState("");
+
 const [engine1, setENGINE1] = useState("")
 const [engine2, setENGINE2] = useState("")
 const [engine3, setENGINE3] = useState("")
@@ -31,6 +38,12 @@ const [software4Type, setSOFTWARE4Type] = useState("")
 const [software5Name, setSOFTWARE5Name] = useState("")
 const [software5Desc, setSOFTWARE5Desc] = useState("")
 const [software5Type, setSOFTWARE5Type] = useState("")
+
+
+const [open, setOpen] = React.useState(false);
+const [opeN, setOpeN] = React.useState(false);
+const handleClose = () => setOpen(false);
+const handleClosE = () => setOpeN(false);
 
 
 const API_KEY = 'ubtDeq16oc6DaL16ddmYvUlEiRF5zGwnYRiYv7tn'
@@ -83,6 +96,36 @@ const fetchData = async () => {
 fetchData()
 }, [])
 
+
+function callFunctions(softwareName) {
+  addToFavorites(softwareName)
+  setOpen(true)
+}
+
+function callOtherFunctions() {
+  setOpen(false);
+  setOpeN(true)
+}
+
+
+function addToFavorites(softwareName){
+  // favoritedSoftware.push(softwareName)
+
+  // console.log(favoritedSoftware)
+
+  // favoritedSoftware.forEach(software => 
+    
+  // )
+
+    let tempArr = list;
+
+    tempArr.push(softwareName);
+
+    setList(tempArr);
+
+    setValue("");
+}
+
 const images = [
   {url: engine1},
   {url: engine2},
@@ -96,10 +139,24 @@ const images = [
   {url: engine10}
 ]
 
-const minimumLength = 80
-const idealLength = 100
-const maxLength = 200
-const readMoreText = "Read More"
+const minimumLength = 20
+const idealLength = 400
+const maxLength = 800
+const readMoreText = `Read More` 
+
+
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
   return (
     <div class="mainPage">
@@ -130,6 +187,7 @@ const readMoreText = "Read More"
             max={maxLength}
             readMoreText={readMoreText}/>
           <span class="type">Release Type: &nbsp; <strong>{software1Type}</strong></span>
+          <Button id="favNASA4" variant="contained" color="error" onClick={() => callFunctions(software1Name)}>Favorite</Button>
         </div>
         <div id="card2">
          <h3>{software2Name}</h3>
@@ -140,6 +198,7 @@ const readMoreText = "Read More"
             max={maxLength}
             readMoreText={readMoreText}/>
           <span class="type">Release Type: &nbsp; <strong>{software2Type}</strong></span>
+          <Button id="favNASA3" variant="contained" color="error" onClick={() => callFunctions(software2Name)}>Favorite</Button>
         </div>
         <div id="card3">
           <h3>{software3Name}</h3>
@@ -149,6 +208,7 @@ const readMoreText = "Read More"
             max={maxLength}
             readMoreText={readMoreText}/>
           <span class="type">Release Type: &nbsp; <strong>{software3Type}</strong></span>
+          <Button id="favNASA2" variant="contained" color="error" onClick={() => callFunctions(software3Name)}>Favorite</Button>
         </div>
         <div id="card4">
           <h3>{software4Name}</h3>
@@ -158,6 +218,7 @@ const readMoreText = "Read More"
             max={maxLength}
             readMoreText={readMoreText}/>
          <span class="type">Release Type: &nbsp; <strong>{software4Type}</strong></span>
+         <Button id="favNASA1" variant="contained" color="error" onClick={() => callFunctions(software4Name)}>Favorite</Button>
         </div>
         <div id="card5">
           <h3>{software5Name}</h3>
@@ -167,8 +228,48 @@ const readMoreText = "Read More"
             max={maxLength}
             readMoreText={readMoreText}/>
           <span class="type">Release Type: &nbsp; <strong>{software5Type}</strong></span>
+          <Button id="favNASA" variant="contained" color="error" onClick={() => callFunctions(software5Name)}>Favorite</Button>
         </div>
       </div>
+
+
+      <Modal
+  open={open}
+  onClose={handleClose}
+  aria-labelledby="modal-modal-title"
+  aria-describedby="modal-modal-description"
+>
+  <Box sx={style}>
+    <Typography id="modal-modal-title" variant="h6" component="h2">
+      Favorited NASA Software:
+      <ul>{list.length > 0 && list.map((item) => <li>{item} </li>)}</ul>
+    </Typography>
+    <Button id="sendButton" variant="contained" color="error" onClick={() => callOtherFunctions()}>
+  Share the List!
+</Button>
+  </Box>
+</Modal>
+
+
+<Modal
+  open={opeN}
+  onClose={handleClose}
+  aria-labelledby="modal-modal-title"
+  aria-describedby="modal-modal-description"
+>
+  <Box sx={style}>
+  <Typography id="modal-modal-title" variant="h6" component="h2">
+      Share with your friends!
+    </Typography>
+    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+      <label>Please enter an email:</label> <br/>
+      <input type="email" placeholder="joe@joseph.com"/>
+    </Typography>
+    <Button id="sendButton" variant="contained" color="error" onClick={handleClosE}>
+  Share the List!
+</Button>
+  </Box>
+</Modal>
 
     </div>
   );
