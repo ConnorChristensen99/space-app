@@ -11,7 +11,8 @@ function Earth() {
 
 
  
-  let images = []
+  let images = [{url: 'https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/epic_1b_20190530011359.png?api_key=DEMO_KEY'}]
+  
   useEffect(() => {
    
     const fetchData = async () => {
@@ -27,7 +28,7 @@ function Earth() {
 
     console.log(picture.image)
 
-    images.push({url: `https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/${picture.image}.png?api_key=${API_KEY}`})
+    // images.push({url: `https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/${picture.image}.png?api_key=${API_KEY}`})
 
     console.log(images)
    }
@@ -71,7 +72,7 @@ function Earth() {
       <div class="imageSlider">
       <SimpleImageSlider
         width={896}
-        height={504}
+        height={904}
         images={images}
         showBullets={true}
         showNavs={true}

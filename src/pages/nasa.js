@@ -106,17 +106,12 @@ function callOtherFunctions() {
   setOpen(false);
   setOpeN(true)
 }
-
+const removeElement = (name) => {
+  const newSoftware = list.filter(item => item !== name);
+  setList(newSoftware);
+};
 
 function addToFavorites(softwareName){
-  // favoritedSoftware.push(softwareName)
-
-  // console.log(favoritedSoftware)
-
-  // favoritedSoftware.forEach(software => 
-    
-  // )
-
     let tempArr = list;
 
     tempArr.push(softwareName);
@@ -242,7 +237,7 @@ const style = {
   <Box sx={style}>
     <Typography id="modal-modal-title" variant="h6" component="h2">
       Favorited NASA Software:
-      <ul>{list.length > 0 && list.map((item) => <li>{item} </li>)}</ul>
+      <ul>{list.length > 0 && list.map((item) => <li id="NASAITEM"> <span id="x" onClick={() => removeElement(item)}>&#10005; </span> {item}</li>)}</ul>
     </Typography>
     <Button id="sendButton" variant="contained" color="error" onClick={() => callOtherFunctions()}>
   Share the List!
