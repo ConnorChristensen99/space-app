@@ -28,7 +28,7 @@ function Earth() {
 
     console.log(picture.image)
 
-    // images.push({url: `https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/${picture.image}.png?api_key=${API_KEY}`})
+    images.push({url: `https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/${picture.image}.png?api_key=${API_KEY}`})
 
     console.log(images)
    }

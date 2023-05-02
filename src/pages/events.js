@@ -16,7 +16,7 @@ function EVENTS() {
   const [radiationbeltTime, setRadbeltTime] = useState("")
   const [radiationbeltLinks, setRadbeltLinks] = useState("")
 
-  const [eventNumber, setEventNumber] = useState(0)
+
   const API_KEY = 'ubtDeq16oc6DaL16ddmYvUlEiRF5zGwnYRiYv7tn'
 
 

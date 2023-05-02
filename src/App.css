@@ -81,6 +81,11 @@ img {
 }
 #marsPhotoss, #engine {
   display: flex;
+  justify-content: center;
+}
+#marsPhotoss {
+    flex-wrap: wrap;
+    padding-bottom: 300px;
 }
 
 
@@ -89,7 +94,7 @@ img {
 /* EARTH PAGE CSS */
 #latImage {
   margin-top: 15px;
-  width: 300px;
+  width: 600px;
   height: auto;
 }
 #filled-basic {
@@ -155,6 +160,7 @@ div.read-more-button:hover {
 }
 .allEvents{
   display: flex;
+  padding-bottom: 100px;
 }
 
 
